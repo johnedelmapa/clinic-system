@@ -72,3 +72,6 @@ group :test do
 end
 
 gem "tailwindcss-rails", "~> 2.0"
+gem 'devise'
+gem 'dotenv-rails'
+gem "simple_calendar", "~> 2.4"
