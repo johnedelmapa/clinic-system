@@ -21,6 +21,8 @@ class AddFieldsToUsers < ActiveRecord::Migration[7.0]
     add_column :users, :bmi_interpretation, :string
     add_column :users, :blood_type, :string
     add_column :users, :hand_type, :string
+    add_column :users, :food_allergies, :string
+    add_column :users, :drug_allergies, :string
     add_column :users, :smoke, :string
     add_column :users, :stick_count, :integer
     add_column :users, :smoke_duration, :string

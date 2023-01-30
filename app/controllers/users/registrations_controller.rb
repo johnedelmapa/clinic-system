@@ -5,7 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   def create
-    @user = Student.find_by(student_id: params[:student_id])
+    @user = Student.find_by(student_id: params[:user][:student_id])
     if @user && @user.present?
       super
     else

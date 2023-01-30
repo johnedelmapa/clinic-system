@@ -8,10 +8,11 @@
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet">
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="bg-gray-200 font-sans leading-normal tracking-normal">
     <main>
       <%= render partial: "shared/navbar" %>
       <%= render partial: "shared/flash" %>

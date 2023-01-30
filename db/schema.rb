@@ -46,6 +46,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_25_132159) do
     t.string "bmi_interpretation"
     t.string "blood_type"
     t.string "hand_type"
+    t.string "food_allergies"
+    t.string "drug_allergies"
     t.string "smoke"
     t.integer "stick_count"
     t.string "smoke_duration"
