@@ -1,0 +1,50 @@
+<div class="simple-calendar container mx-auto mt-10">
+    <div class="wrapper bg-white rounded shadow w-full ">
+        <div class="calendar-heading header flex justify-between border-b p-2">
+            <span class="text-lg font-bold">
+                <%= t('date.month_names')[start_date.month] %> <%= start_date.year %>
+            </span>
+            <div class="buttons">
+                <%= link_to calendar.url_for_previous_view  do %>
+                <i class="fa-solid fa-circle-chevron-left"></i>
+                <% end %>
+                <%= link_to calendar.url_for_next_view do %>
+                <i class="fa-solid fa-circle-chevron-right"></i>
+                <% end %>
+
+            </div>
+        </div>
+
+        <table class="w-full">
+            <thead>
+                <tr>
+                    <% date_range.slice(0, 7).each do |day| %>
+                    <th class="p-2 border-r h-10 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 xl:text-sm text-xs">
+                        <span class="xl:block lg:block md:block sm:block hidden"></span>
+                            <%= t('date.abbr_day_names')[day.wday] %>
+                        </span>
+                    </th>
+                    <% end %>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% date_range.each_slice(7) do |week| %>
+                <tr class="text-center h-20">
+                    <% week.each do |day| %>
+                    <td class="border p-1 h-40 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 overflow-auto transition cursor-pointer duration-500 ease hover:bg-gray-300 ">
+                        <%#= content_tag :td, class: calendar.td_classes_for(day) do %>
+                        <div class="flex flex-col h-40 xl:w-40 lg:w-30 md:w-30 sm:w-full w-auto mx-auto overflow-hidden">
+                            <div class="top h-5 w-full">
+                                <span class="text-gray-500 text-sm"><% passed_block.call day, sorted_events.fetch(day, []) %></span>
+                            </div>
+                        </div>
+                        <%# end %>
+                    </td>
+                    <% end %>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

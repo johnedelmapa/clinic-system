@@ -75,3 +75,7 @@ gem "tailwindcss-rails", "~> 2.0"
 gem 'devise'
 gem 'dotenv-rails'
 gem "simple_calendar", "~> 2.4"
+gem 'wkhtmltopdf'
+gem 'wkhtmltopdf-binary', '>= 0.12'
+gem 'wicked_pdf'
+gem 'recurring_select'

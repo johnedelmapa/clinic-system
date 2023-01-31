@@ -14,7 +14,11 @@
  *= require_self
  */
 
- body {
+body {
     font-family: 'Work Sans', sans-serif;
+}
+
+.group:hover .group-hover\:flex {
+	display: flex;
 }
         
