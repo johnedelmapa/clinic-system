@@ -1,0 +1,51 @@
+
+<div class="flex w-screen flex-wrap text-slate-800">
+    <div class="flex w-full flex-col">
+        <div class="flex justify-center text-center py-12 md:pl-12">
+            <a href="#" class="text-2xl font-bold text-red-600">Schedule a appointment</a>
+        </div>
+        <div class="my-auto mx-auto flex flex-col justify-center pt-8 md:justify-start w-[800px]">
+            <div class="flex w-full flex-col rounded-2xl bg-white px-2 sm:px-14">
+                <%= form_with(model: @appointment, class: "w-full pb-20") do |f| %>
+                    <%= f.hidden_field :status, value: "pending" %>
+                     <% if @appointment.errors.any? %>
+                    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+                        <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+                        <ul>
+                            <% @appointment.errors.each do |error| %>
+                            <li><%= error.full_message %></li>
+                            <% end %>
+                        </ul>
+                    </div>
+                    <% end %>
+                    <div class="mb-6 pt-20 text-center">
+                        <h5 class="block uppercase tracking-wide text-gray-700 font-bold mb-2 text-center">Please select 2 timeslot for your schedule</h5>
+                        <label class="block tracking-wide text-gray-500 text-xs font-bold mb-2">example time: 8:00 AM, 8:30 AM, 9:00 AM, 9:30 AM</label>
+                    </div>
+                    <div class="flex flex-wrap -mx-3 mb-6 pt-10">
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Morning Schedule</label>
+                            <%= f.datetime_field :start_time, class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", required: true %>
+                        </div>
+                        
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Afternoon Schedule</label>
+                             <%= f.datetime_field :pm_start_time, class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", required: true %>
+                        </div>
+                    </div>
+
+
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full md:w-full px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Reason for consultation</label>
+                            <%= f.text_area :reasons_for_consultation,  size: "30x5", class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", required: true %>
+                        </div>
+                    </div>
+
+                    <%= f.submit "Create Appointment", class: "my-2 flex items-center justify-center rounded-md bg-gray-900 py-3 font-medium text-white w-full"%>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

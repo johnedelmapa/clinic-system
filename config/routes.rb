@@ -11,4 +11,10 @@ Rails.application.routes.draw do
   patch '/users/emergency_contact', to: 'users#emergency_contact'
   get '/users/history', to: 'users#history'
   patch '/users/history', to: 'users#history'
+
+  resources :appointments do
+    member do 
+      get 'confirmation'
+    end
+  end
 end
