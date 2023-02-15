@@ -24,4 +24,11 @@ Rails.application.routes.draw do
     resources :sessions, only: :create
     get "/logout", to: "sessions#destroy"
   end
+
+  namespace :doctor do
+    get '/dashboard', to: "pages#dashboard"
+    get '/login', to: "sessions#new"
+    resources :sessions, only: :create
+    get "/logout", to: "sessions#destroy"
+  end
 end

@@ -20,3 +20,13 @@ nurse = Nurse.new(
     password_confirmation: "password" 
 )
 nurse.save!
+
+
+doctor = Doctor.new(
+    email: "doctor@gmail.com",
+    firstname: "Doctor",
+    lastname: "Account",
+    password: "password",
+    password_confirmation: "password" 
+)
+doctor.save!

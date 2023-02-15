@@ -14,4 +14,20 @@ module SessionsHelper
   def nurse_logged_in?
     !current_nurse.nil?
   end
+
+  def log_in_doctor(doctor)
+    session[:doctor_id] = doctor.id
+  end
+
+  def log_out_doctor
+    session.delete(:doctor_id)
+  end
+
+  def current_doctor
+    Doctor.find_by(id: session[:doctor_id])
+  end
+
+  def doctor_logged_in?
+    !current_doctor.nil?
+  end
 end
