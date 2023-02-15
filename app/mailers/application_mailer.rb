@@ -1,4 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "from@example.com"
+  require 'rest-client'
+  default from: "tup-appointment@info.com"
   layout "mailer"
 end

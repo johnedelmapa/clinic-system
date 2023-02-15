@@ -1,0 +1,6 @@
+
+Good day <%= @user.firstname %>!
+===============================================
+
+Your appointment on <%= @appointment.start_time.strftime("%m/%d/%Y") %> at <%= @appointment.start_time.strftime("%I:%M%p") %> and <%= @appointment.pm_start_time.strftime("%I:%M%p") %> has been booked. 
+Please wait for the confirmation shortly. Thank You!

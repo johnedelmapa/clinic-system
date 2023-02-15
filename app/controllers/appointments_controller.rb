@@ -1,9 +1,11 @@
 class AppointmentsController < ApplicationController
+    before_action :authenticate_user!
     before_action :set_appointment, only: :confirmation
     def choose_options
     end
 
     def confirmation
+      UserMailer.confirmation_message(current_user, @appointment).deliver
     end
   
     # GET /appointments or /appointments.json
@@ -11,7 +13,7 @@ class AppointmentsController < ApplicationController
       start_date = params.fetch(:start_date, Date.today).to_date
       @appointments = current_user.appointments.where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
     end
-  my
+
     # GET /appointments/1 or /appointments/1.json
     def show
     end
@@ -66,7 +68,7 @@ class AppointmentsController < ApplicationController
   
       # Only allow a list of trusted parameters through.
       def appointment_params
-        params.require(:appointment).permit(:user_id, :start_time, :end_time, :reasons_for_consultation, :status)
+        params.require(:appointment).permit(:user_id, :start_time, :pm_start_time, :reasons_for_consultation, :status)
       end
   end
   

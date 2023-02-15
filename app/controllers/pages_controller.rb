@@ -1,7 +1,9 @@
 class PagesController < ApplicationController
+  before_action :authenticate_user!
   before_action :check_user_information, only: :dashboard
   before_action :check_emergency_contact, only: :dashboard
   def dashboard
+    #UserMailer.welcome_email(current_user).deliver
     start_date = params.fetch(:start_date, Date.today).to_date
     @appointments = Appointment.all.where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
   end
