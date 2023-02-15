@@ -17,4 +17,11 @@ Rails.application.routes.draw do
       get 'confirmation'
     end
   end
+
+  namespace :nurse do
+    get '/dashboard', to: "pages#dashboard"
+    get '/login', to: "sessions#new"
+    resources :sessions, only: :create
+    get "/logout", to: "sessions#destroy"
+  end
 end

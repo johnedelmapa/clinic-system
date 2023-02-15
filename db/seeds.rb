@@ -10,3 +10,13 @@
 Student.create(student_id: "TUPV190114")
 Student.create(student_id: "TUPV190086")
 Student.create(student_id: "TUPV190051")
+
+
+nurse = Nurse.new(
+    email: "nurse@gmail.com",
+    firstname: "Nurse",
+    lastname: "Account",
+    password: "password",
+    password_confirmation: "password" 
+)
+nurse.save!

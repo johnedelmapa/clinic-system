@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :about
   before_action :check_user_information, only: :dashboard
   before_action :check_emergency_contact, only: :dashboard
   def dashboard

@@ -50,6 +50,51 @@
                   </ul>
               </div>
           </div>
-		
+	</nav>
+<% elsif nurse_logged_in? %>
+    <nav class="relative px-10 py-4 flex justify-between items-center bg-white border-b border-gray-200">
+		<a class="text-3xl font-bold leading-none" href="/nurse/dashboard">
+            <%= image_tag 'icon.png', class: "h-10" %>
+		</a>
+		<ul class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+			<li>
+                <%= link_to "Dashboard", nurse_dashboard_path, class: "text-sm text-red-600 font-bold"%>
+            </li>
+
+			<li class="text-gray-300">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" class="w-4 h-4 current-fill" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v0m0 7v0m0 7v0m0-13a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+				</svg>
+			</li>
+			<li>
+             <%= link_to "About Us", about_path, class: "text-sm text-red-600 font-bold"%>
+            </li>
+		</ul>
+		<!-- <a class="inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" href="#">Sign In</a> -->
+        <div class="inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-white hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200" data-controller="dropdown">
+              <div data-action="click->dropdown#toggle click@window->dropdown#hide" role="button"
+                  data-dropdown-target="button" tabindex="0" class="inline-block select-none">
+                  <span class="relative flex-shrink-0">
+                      <%= profile_image(current_nurse, "w-7 h-7 rounded-full") %>
+                      <span
+                          class="absolute right-0 -mb-0.5 bottom-0 w-2 h-2 rounded-full bg-green-500 border border-whit"></span>
+                  </span>
+              </div>
+
+              <div data-dropdown-target="menu"
+                  class="absolute right-0 mt-2 hidden z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow bg-gray-50"
+                  id="user-dropdown">
+                  <div class="py-3 px-4">
+                      <span class="block text-sm text-gray-900 dark:text-white"><%= current_nurse.email %></span>
+                      <span
+                          class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400"><%= current_nurse.email %></span>
+                  </div>
+                  <ul class="py-1" aria-labelledby="user-menu-button">
+                      <li>
+                          <%= link_to "Sign out", nurse_logout_path, data: { turbo: false }, class: "block block py-2 px-4 text-sm text-gray-900 hover:text-red-600 w-100" %>
+                      </li>
+                  </ul>
+              </div>
+          </div>
 	</nav>
 <% end %>
