@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:firstname, :lastname, :dob, :gender, :department, :phone, :street, :city, :province, :zipcode, :ec_firstname, :ec_lastname, :ec_mobile, :ec_relationship,
       :height, :weight, :bmi, :bmi_interpretation, :blood_type, :hand_type, :food_allergies, :drug_allergies, :smoke, :stick_count, :smoke_duration, :alcohol, 
-    :alcohol_count, :drug_history, :herbal_meds, :blood_transfusion, :artificial_body, :dentures, :corrective)
+    :alcohol_count, :drug_history, :herbal_meds, :blood_transfusion, :artificial_body, :dentures, :corrective, :vaccin_card, :school_id)
     end
    
 end

@@ -5,4 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :appointments, dependent: :destroy
+  
+  has_one_attached :vaccin_card do |attachable|
+    attachable.variant :thumb, resize_to_limit: [100, 100]
+  end
+
+  has_one_attached :school_id do |attachable|
+    attachable.variant :thumb, resize_to_limit: [100, 100]
+  end
 end

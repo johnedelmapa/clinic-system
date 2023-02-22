@@ -1,4 +1,58 @@
-<div>
-  <h1 class="font-bold text-4xl">Nurse::Pages#dashboard</h1>
-  <p>Find me in app/views/nurse/pages/dashboard.html.erb</p>
-</div>
+<!-- component -->
+<div class="table w-full p-2">
+        <table class="w-full border">
+            <thead>
+                <tr class="bg-gray-50 border-b">
+                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                        <div class="flex items-center justify-center">
+                            Student Name
+                        </div>
+                    </th>
+                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                        <div class="flex items-center justify-center">
+                            Student Email
+                        </div>
+                    </th>
+                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                        <div class="flex items-center justify-center">
+                            Student ID
+                        </div>
+                    </th>
+                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                        <div class="flex items-center justify-center">
+                            Appointment Schedule
+                        </div>
+                    </th>
+                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                        <div class="flex items-center justify-center">
+                            Action
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @appointments.each do |appointment| %>
+                  <tr class="bg-gray-100 text-center border-b text-sm">
+                      <td class="p-2 border-r"><%= appointment.user.firstname + " " + appointment.user.lastname %> </td>
+                      <td class="p-2 border-r"><%= appointment.user.email %></td>
+                      <td class="p-2 border-r"><%= appointment.user.student_id %></td>
+                      <td class="p-2 border-r"><%= appointment.start_time.strftime("%m/%d/%Y") %> at morning: 
+                        <span class="inline-block whitespace-nowrap rounded-[0.27rem] bg-primary-100 px-[0.65em] pt-[0.35em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none bg-blue-500">
+                          <%= appointment.start_time.strftime("%I:%M%p") %> 
+                        </span>
+                          and  afternoon: 
+                        <span class="inline-block whitespace-nowrap rounded-[0.27rem] bg-secondary-100 px-[0.65em] pt-[0.35em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none bg-green-500">
+                          <%= appointment.pm_start_time.strftime("%I:%M%p") %>
+                        </span>
+                      </td>
+
+                      <td>
+                        <%= link_to "Accept #{appointment.start_time.strftime("%I:%M%p")}", nurse_main_appointment_path(appointment: appointment), data: { turbo_method: "post" }, class: "bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin"%>
+                        <%= link_to "Accept #{appointment.pm_start_time.strftime("%I:%M%p")}", nurse_secondary_apppointment_path, data: { turbo_method: "post" }, class: "bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin"%>
+                        <a href="#" class="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin">Decline</a>
+                      </td>
+                  </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>

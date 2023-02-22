@@ -22,3 +22,7 @@ body {
 	display: flex;
 }
         
+.image-attachment {
+    width: 100% !important;
+    height: auto !important;
+}

@@ -21,13 +21,16 @@ Rails.application.routes.draw do
   namespace :nurse do
     get '/dashboard', to: "pages#dashboard"
     get '/login', to: "sessions#new"
+    get '/success', to: "pages#success"
+    post '/main_appointment', to: "pages#main_appointment"
+    post '/secondary_apppointment', to: "pages#secondary_apppointment"
     resources :sessions, only: :create
     get "/logout", to: "sessions#destroy"
   end
 
   namespace :doctor do
     get '/dashboard', to: "pages#dashboard"
-    get '/login', to: "sessions#new"
+    get '/login', to: "sessions#new"  
     resources :sessions, only: :create
     get "/logout", to: "sessions#destroy"
   end

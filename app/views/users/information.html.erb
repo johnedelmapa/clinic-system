@@ -92,6 +92,33 @@
                         </div>
                     </div>
 
+    
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">School ID</label>
+                            <% unless current_user.school_id.attached? %>
+                                <%= f.file_field :school_id, accept: "image/*", direct_upload: true, class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", required: true %>
+                            <% end %>
+                            <% if current_user.school_id.attached? %>
+                                <div class="mt-5">
+                                    <%= image_tag current_user.school_id, class: "image-attachment"%>
+                                </div>
+                            <% end %>
+                        </div>
+                        
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Vaccination Card</label>
+                            <% unless current_user.school_id.attached? %>
+                                <%= f.file_field :vaccin_card, accept: "image/*", direct_upload: true, class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", required: true %>
+                            <% end %>
+                            <% if current_user.vaccin_card.attached? %>
+                                <div class="mt-5">
+                                    <%= image_tag current_user.vaccin_card, class: "image-attachment"%>
+                                </div>
+                            <% end %>
+                        </div>
+                    </div>
+
                     <%= f.submit "Continue", class: "my-2 flex items-center justify-center rounded-md bg-gray-900 py-3 font-medium text-white w-full"%>
 
                 <% end %>

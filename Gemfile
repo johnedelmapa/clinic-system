@@ -82,3 +82,4 @@ gem 'recurring_select'
 gem 'rest-client'
 gem 'mailgun_rails'
 gem 'figaro'
+gem "image_processing", ">= 1.2"
