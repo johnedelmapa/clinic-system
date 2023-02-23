@@ -1,0 +1,6 @@
+
+Good day <%= @user.firstname %>!
+===============================================
+
+Good day! Your booked appointment on <%= @appointment.pm_start_time.strftime("%m/%d/%Y") %> at <%= @appointment.pm_start_time.strftime("%I:%M%p") %> 
+has been approved. Please arrive 15 minutes earlier before your booked schedule. Thank you!

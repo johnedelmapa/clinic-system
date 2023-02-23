@@ -18,6 +18,8 @@ class Nurse::PagesController < ApplicationController
     doctor_appointment.start_time = appointment.start_time
     doctor_appointment.save
 
+    UserMailer.accepted_appointment(User.find(appointment.user_id), appointment).deliver
+
     flash[:notice] = "Succefully Assigned Schedule..."
     redirect_to nurse_success_path
   end
@@ -34,6 +36,8 @@ class Nurse::PagesController < ApplicationController
     doctor_appointment.user_id = appointment.user_id
     doctor_appointment.start_time = appointment.pm_start_time
     doctor_appointment.save
+
+    UserMailer.accepted_appointment_secondary(User.find(appointment.user_id), appointment).deliver
 
     flash[:notice] = "Succefully Assigned Schedule..."
     redirect_to nurse_success_path

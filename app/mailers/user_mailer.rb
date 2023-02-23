@@ -7,6 +7,18 @@ class UserMailer < ApplicationMailer
   def confirmation_message(user, appointment)
     @user = user
     @appointment = appointment
-    mail(to: user.email, subject: 'Appointment Sucessfully Created')
+    mail(to: user.email, subject: 'Successful booking')
+  end
+
+  def accepted_appointment(user, appointment)
+    @user = user
+    @appointment = appointment
+    mail(to: user.email, subject: 'Accepted booking')
+  end
+
+  def accepted_appointment_secondary(user, appointment)
+    @user = user
+    @appointment = appointment
+    mail(to: user.email, subject: 'Accepted booking')
   end
 end
