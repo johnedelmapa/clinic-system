@@ -22,8 +22,10 @@ Rails.application.routes.draw do
     get '/dashboard', to: "pages#dashboard"
     get '/login', to: "sessions#new"
     get '/success', to: "pages#success"
+    get '/success_decline', to: "pages#success_decline"
     post '/main_appointment', to: "pages#main_appointment"
     post '/secondary_apppointment', to: "pages#secondary_apppointment"
+    delete '/decline', to: "pages#decline"
     resources :sessions, only: :create
     get "/logout", to: "sessions#destroy"
   end

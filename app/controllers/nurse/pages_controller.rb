@@ -43,6 +43,20 @@ class Nurse::PagesController < ApplicationController
     redirect_to nurse_success_path
   end
 
+  def decline
+    appointment = Appointment.find(params["appointment"])
+    appointment.status = "decline"
+    appointment.save
+
+    UserMailer.decline_appointment(User.find(appointment.user_id), appointment).deliver
+
+    flash[:notice] = "Succefully Declined Schedule..."
+    redirect_to nurse_success_decline_path
+  end
+
+  def success_decline
+  end
+
   def success
   end
 

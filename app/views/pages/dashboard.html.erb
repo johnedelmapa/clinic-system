@@ -20,15 +20,14 @@
         <% appointments.each do |appointment| %>
             <div class="bottom flex-grow h-30 py-1 w-full cursor-pointer">
                 <%= link_to confirmation_appointment_url(appointment) do%>
-                <div class="event bg-blue-600 text-white rounded p-1 text-sm mb-1">
-                    <span class="event-name">
-                        <%= appointment.status %>
-                    </span>
-                    <!-- <span class="time">
-                        <%= appointment.start_time.strftime("%I:%M%p") %>
-                    </span> -->
-                </div>
-                 <% end %>
+                    <% if appointment.status == "pending"%>
+                        <div class="event bg-blue-600 text-white rounded p-1 text-sm mb-1"><%= appointment.status %></div>
+                    <% elsif appointment.status == "confirmed" %>
+                        <div class="event bg-green-600 text-white rounded p-1 text-sm mb-1"><%= appointment.status %></div>
+                    <% else %>
+                        <div class="event bg-red-600 text-white rounded p-1 text-sm mb-1"><%= appointment.status %></div>
+                    <% end %>
+                 <% end%>
             </div>
         <% end %>
     <% end %>

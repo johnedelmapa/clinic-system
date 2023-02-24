@@ -1,0 +1,5 @@
+
+Good day <%= @user.firstname %>!
+===============================================
+
+Good day! Your booked appointment on <%= @appointment.start_time.strftime("%m/%d/%Y") %> at <%= @appointment.start_time.strftime("%I:%M%p") %> and <%= @appointment.pm_start_time.strftime("%I:%M%p") %> has been denied. Kindly book an appointment on a different schedule. Thank you

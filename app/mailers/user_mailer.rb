@@ -21,4 +21,10 @@ class UserMailer < ApplicationMailer
     @appointment = appointment
     mail(to: user.email, subject: 'Accepted booking')
   end
+
+  def decline_appointment(user, appointment)
+    @user = user
+    @appointment = appointment
+    mail(to: user.email, subject: 'Denied booking')
+  end
 end
