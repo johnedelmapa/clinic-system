@@ -2,7 +2,7 @@
 <div class="flex w-screen flex-wrap text-slate-800">
     <div class="flex w-full flex-col">
         <div class="flex justify-center text-center py-12 md:pl-12">
-            <a href="#" class="text-2xl font-bold text-red-600">Schedule a appointment</a>
+            <a href="#" class="text-2xl font-bold text-red-600">Schedule an Appointment</a>
         </div>
         <div class="my-auto mx-auto flex flex-col justify-center pt-8 md:justify-start w-[800px]">
             <div class="flex w-full flex-col rounded-2xl bg-white px-2 sm:px-14">
@@ -40,6 +40,13 @@
                         <div class="w-full md:w-full px-3 mb-6 md:mb-0">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Reason for consultation</label>
                             <%= f.text_area :reasons_for_consultation,  size: "30x5", class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", required: true %>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full md:w-full px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Food/Drug Allergies</label>
+                            <%= f.text_area :allergies,  size: "30x5", class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", required: true %>
                         </div>
                     </div>
 

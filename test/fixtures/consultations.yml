@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  doctor_appointment_id: 1
+  assessment: MyString
+  diagnosis: MyString
+  plan: MyString
+  t: MyString
+  rr: MyString
+  cr: MyString
+  spo2: MyString
+  bp1: MyString
+  bp2: MyString
+
+two:
+  user_id: 1
+  doctor_appointment_id: 1
+  assessment: MyString
+  diagnosis: MyString
+  plan: MyString
+  t: MyString
+  rr: MyString
+  cr: MyString
+  spo2: MyString
+  bp1: MyString
+  bp2: MyString

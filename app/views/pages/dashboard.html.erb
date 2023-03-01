@@ -24,6 +24,8 @@
                         <div class="event bg-blue-600 text-white rounded p-1 text-sm mb-1"><%= appointment.status %></div>
                     <% elsif appointment.status == "confirmed" %>
                         <div class="event bg-green-600 text-white rounded p-1 text-sm mb-1"><%= appointment.status %></div>
+                    <% elsif appointment.status == "completed" %>
+                        <div class="event bg-gray-600 text-white rounded p-1 text-sm mb-1"><%= appointment.status %></div>
                     <% else %>
                         <div class="event bg-red-600 text-white rounded p-1 text-sm mb-1"><%= appointment.status %></div>
                     <% end %>

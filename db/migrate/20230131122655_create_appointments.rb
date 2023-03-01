@@ -5,6 +5,7 @@ class CreateAppointments < ActiveRecord::Migration[7.0]
       t.datetime :start_time
       t.datetime :pm_start_time
       t.string :reasons_for_consultation
+      t.string :allergies
       t.string :status
       t.timestamps
     end

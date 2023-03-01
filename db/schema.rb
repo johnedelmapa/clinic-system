@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_22_095049) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_28_104234) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -44,10 +44,27 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_22_095049) do
     t.datetime "start_time"
     t.datetime "pm_start_time"
     t.string "reasons_for_consultation"
+    t.string "allergies"
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_appointments_on_user_id"
+  end
+
+  create_table "consultations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "doctor_appointment_id"
+    t.string "assessment"
+    t.string "diagnosis"
+    t.string "plan"
+    t.string "t"
+    t.string "rr"
+    t.string "cr"
+    t.string "spo2"
+    t.string "bp1"
+    t.string "bp2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "doctor_appointments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
