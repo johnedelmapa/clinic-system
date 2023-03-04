@@ -71,15 +71,19 @@ group :test do
   gem "webdrivers"
 end
 
+#design
 gem "tailwindcss-rails", "~> 2.0"
+
+#user authentication
 gem 'devise'
-gem 'dotenv-rails'
-gem "simple_calendar", "~> 2.4"
-gem 'wkhtmltopdf'
-gem 'wkhtmltopdf-binary', '>= 0.12'
-gem 'wicked_pdf'
-gem 'recurring_select'
-gem 'rest-client'
-gem 'mailgun_rails'
+
+#gems for setting up api keys for mailgun
 gem 'figaro'
+gem 'mailgun_rails'
+gem 'dotenv-rails'
+
+#calendar
+gem "simple_calendar", "~> 2.4"
+
+#image upload
 gem "image_processing", ">= 1.2"
