@@ -3,6 +3,9 @@ class Nurse::PagesController < ApplicationController
 
   def dashboard
     @appointments = Appointment.where(status: "pending")
+
+    start_date = params.fetch(:start_date, Date.today).to_date
+    @doctor_appointments = DoctorAppointment.all.where(start_time: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
   end
 
   def main_appointment

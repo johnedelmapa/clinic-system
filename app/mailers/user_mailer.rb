@@ -27,4 +27,11 @@ class UserMailer < ApplicationMailer
     @appointment = appointment
     mail(to: user.email, subject: 'Denied booking')
   end
+
+
+  def send_report(user, consultation)
+    @user = user
+    @consultation = consultation
+    mail(to: user.email, subject: 'Results of consultation')
+  end
 end

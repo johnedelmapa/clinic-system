@@ -20,6 +20,12 @@ class Doctor::ConsultationsController < ApplicationController
     appointment = Appointment.find(doctor_appointment.appointment_id)
     appointment.status = "completed"
     appointment.save
+
+
+    find_user = User.find(params[:consultation][:user_id])
+    find_consultation = Consultation.find_by(user_id: params[:consultation][:user_id], doctor_appointment_id: params[:consultation][:doctor_appointment_id], assessment: params[:consultation][:assessment])
+    UserMailer.send_report(find_user, find_consultation).deliver
+
     redirect_to doctor_dashboard_path
   end
 
