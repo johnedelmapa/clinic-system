@@ -34,4 +34,10 @@ class UserMailer < ApplicationMailer
     @consultation = consultation
     mail(to: user.email, subject: 'Results of consultation')
   end
+
+  def cancel_appointment(user, doctor_appointment)
+    @user = user
+    @doctor_appointment = doctor_appointment
+    mail(to: user.email, subject: 'Appointment Cancelled')
+  end
 end

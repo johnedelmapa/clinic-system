@@ -41,6 +41,7 @@
                     </div>
                  </div>
 
+
                  <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Food/drug allergies</label>
@@ -51,6 +52,14 @@
                             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Complaints</label>
                         <%= text_area_tag :student_complaints, (@user_appointment.reasons_for_consultation) , class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", disabled: true %>
                     </div>
+                 </div>
+
+                <div class="flex flex-wrap -mx-3">
+                    <%= link_to "View more about patient", doctor_student_information_path(user: @user.id), class: "my-2 flex items-center justify-center rounded-md bg-gray-900 py-3 font-medium text-white w-full"%>
+                 </div>
+
+                 <div class="flex flex-wrap -mx-3 mb-6">
+                    <%= link_to "Cancel Appointment", doctor_cancel_path(doctor_appointment: @doctor_appointment.id), class: "my-2 flex items-center justify-center rounded-md bg-red-900 py-3 font-medium text-white w-full"%>
                  </div>
 
         
@@ -83,7 +92,7 @@
                             <%= f.text_area :plan, class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", required: true %>
                         </div>
                     </div>
-                <%= f.submit "Send Reports", class: "my-2 flex items-center justify-center rounded-md bg-gray-900 py-3 font-medium text-white w-full"%>
+                <%= f.submit "Send Reports", class: "my-2 flex items-center justify-center rounded-md bg-blue-900 py-3 font-medium text-white w-full"%>
                 <% end %>
             </div>
         </div>

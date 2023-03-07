@@ -1,0 +1,6 @@
+
+Good day <%= @user.firstname %>!
+===============================================
+
+Good day! your appointment was cancelled on <%= @doctor_appointment.start_time.strftime("%m/%d/%Y") %> at <%= @doctor_appointment.start_time.strftime("%I:%M%p") %> 
+Please book another timeslot. Thank you!

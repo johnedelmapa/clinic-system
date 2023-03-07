@@ -28,6 +28,11 @@ Rails.application.routes.draw do
     delete '/decline', to: "pages#decline"
     resources :sessions, only: :create
     get "/logout", to: "sessions#destroy"
+
+
+    get '/student/information', to: "users#information"
+    get '/student/emergency_contact', to: "users#emergency_contact"
+    get '/student/history', to: "users#history"
   end
 
   namespace :doctor do
@@ -36,5 +41,11 @@ Rails.application.routes.draw do
     get "/logout", to: "sessions#destroy"
     resources :sessions, only: :create
     resources :consultations
+
+    get '/student/information', to: "users#information"
+    get '/student/emergency_contact', to: "users#emergency_contact"
+    get '/student/history', to: "users#history"
+
+    get '/cancel', to: "consultations#cancel"
   end
 end

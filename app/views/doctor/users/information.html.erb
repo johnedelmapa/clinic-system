@@ -1,0 +1,126 @@
+<div class="flex w-screen flex-wrap text-slate-800">
+    <div class="flex w-full flex-col">
+        <div class="flex justify-center text-center py-12 md:pl-12">
+            <a href="#" class="text-2xl font-bold text-red-600">Student Information</a>
+        </div>
+        <div class="my-auto mx-auto flex flex-col justify-center pt-8 md:justify-start w-[800px]">
+            <div class="flex w-full flex-col rounded-2xl bg-white px-2 sm:px-14">
+                <div class="mx-auto w-full max-w-md pb-20 pt-20 px-8 sm:px-0">
+                    <div class="relative">
+                        <div class="absolute left-0 top-2 h-0.5 w-full bg-gray-200" aria-hidden="true">
+                            <div class="absolute h-full w-1/3 bg-gray-900"></div>
+                            <!-- change to w-2/3 for next step -->
+                            <div class="left absolute left-1/3 h-full w-1/3 bg-gradient-to-r from-gray-900"></div>
+                            <!-- change to left-1/2 for next step -->
+                        </div>
+                        <ul class="relative flex w-full justify-between">
+                            <li class="text-left">
+                                <a class="flex h-5 w-5 items-center justify-center rounded-full bg-gray-600 text-xs font-semibold text-white ring ring-gray-600 ring-offset-2"
+                                    href="#">1</a>
+                            </li>
+                            <li class="text-left">
+                                <a class="flex h-5 w-5 items-center justify-center rounded-full bg-gray-300 text-xs font-semibold text-white"
+                                    href="#">2</a>
+                            </li>
+                            <li class="text-left">
+                                <a class="flex h-5 w-5 items-center justify-center rounded-full bg-gray-300 text-xs font-semibold text-white"
+                                    href="#">3</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <%= form_for(@user, url: users_information_path, data: { turbo: false }, html: {class: "w-full pb-20"} ) do |f| %>
+
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Firstname</label>
+                            <%= f.text_field :firstname, class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", disabled: true %>
+                        </div>
+                        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Lastname</label>
+                            <%= f.text_field :lastname, class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", disabled: true %>
+                        </div>
+                        <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Student ID</label>
+                            <%= f.text_field :student_id, class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", disabled: true %>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Date of Birth</label>
+                            <%= f.date_field :dob, class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", disabled: true %>
+                        </div>
+                        <div class="w-full md:w-1/2 px-3">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Gender</label>
+                             <%= f.text_field :gender, class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", disabled: true %>
+                           
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Department</label>
+                            <%= f.text_field :department, class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", disabled: true %>
+                        </div>
+                        <div class="w-full md:w-1/2 px-3">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Contact Number</label>
+                            <%= f.text_field :phone, class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", disabled: true %>
+                        </div>
+                    </div>
+
+                     <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Street</label>
+                            <%= f.text_field :street, class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", disabled: true %>
+                        </div>
+                        
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">City</label>
+                            <%= f.text_field :city, class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", disabled: true %>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Province</label>
+                            <%= f.text_field :province, class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", disabled: true %>
+                        </div>
+                        
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Zipcode</label>
+                            <%= f.text_field :zipcode, class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", disabled: true %>
+                        </div>
+                    </div>
+
+    
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">School ID</label>
+                            <% if @user.school_id.attached? %>
+                                <div class="mt-5">
+                                    <%= image_tag @user.school_id, class: "image-attachment"%>
+                                </div>
+                            <% else %>
+                                <p>Empty</p>
+                            <% end %>
+                        </div>
+                        
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Vaccination Card</label>
+                            <% if @user.vaccin_card.attached? %>
+                                <div class="mt-5">
+                                    <%= image_tag @user.vaccin_card, class: "image-attachment"%>
+                                </div>
+                             <% else %>
+                                <p>Empty</p>
+                            <% end %>
+                        </div>
+                    </div>
+
+                    <%= link_to "Next", doctor_student_emergency_contact_path(user: @user.id), class: "my-2 flex items-center justify-center rounded-md bg-gray-900 py-3 font-medium text-white w-full"%>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

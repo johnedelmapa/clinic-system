@@ -29,4 +29,13 @@ class Doctor::ConsultationsController < ApplicationController
     redirect_to doctor_dashboard_path
   end
 
+  def cancel
+    @doctor_appointment = DoctorAppointment.find(params[:doctor_appointment])
+    find_user = User.find(@doctor_appointment.user_id)
+    UserMailer.cancel_appointment(find_user, @doctor_appointment).deliver
+    @doctor_appointment.destroy
+    flash[:notice] = "Successfully cancelled appointment"
+    redirect_to doctor_dashboard_path
+  end
+
 end

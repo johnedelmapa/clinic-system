@@ -20,9 +20,15 @@
                     </th>
                     <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
                         <div class="flex items-center justify-center">
+                            Reason for consultations
+                        </div>
+                    </th>
+                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                        <div class="flex items-center justify-center">
                             Appointment Schedule
                         </div>
                     </th>
+            
                     <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
                         <div class="flex items-center justify-center">
                             Action
@@ -36,6 +42,7 @@
                       <td class="p-2 border-r"><%= appointment.user.firstname + " " + appointment.user.lastname %> </td>
                       <td class="p-2 border-r"><%= appointment.user.email %></td>
                       <td class="p-2 border-r"><%= appointment.user.student_id %></td>
+                      <td class="p-2 border-r"><%= appointment.reasons_for_consultation %></td>
                       <td class="p-2 border-r"><%= appointment.start_time.strftime("%m/%d/%Y") %> at morning: 
                         <span class="inline-block whitespace-nowrap rounded-[0.27rem] bg-primary-100 px-[0.65em] pt-[0.35em] pb-[0.25em] text-center align-baseline text-[0.75em] font-bold leading-none bg-blue-500">
                           <%= appointment.start_time.strftime("%I:%M%p") %> 
@@ -47,6 +54,7 @@
                       </td>
 
                       <td>
+                        <%= link_to "More details", nurse_student_information_path(user: appointment.user),class: "bg-yellow-500 p-2 text-white hover:shadow-lg text-xs font-thin" %>
                         <%= link_to "Accept #{appointment.start_time.strftime("%I:%M%p")}", nurse_main_appointment_path(appointment: appointment), data: { turbo_method: "post" }, class: "bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin"%>
                         <%= link_to "Accept #{appointment.pm_start_time.strftime("%I:%M%p")}", nurse_secondary_apppointment_path(appointment: appointment), data: { turbo_method: "post" }, class: "bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin"%>
                         <%= link_to "Decline", nurse_decline_path(appointment: appointment), data: { turbo_method: "delete" }, class: "bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin"%>
