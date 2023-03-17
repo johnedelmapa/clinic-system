@@ -6,12 +6,7 @@ class CreateConsultations < ActiveRecord::Migration[7.0]
       t.string :assessment
       t.string :diagnosis
       t.string :plan
-      t.string :t
-      t.string :rr
-      t.string :cr
-      t.string :spo2
-      t.string :bp1
-      t.string :bp2
+      t.string :medical_prescriptions
 
       t.timestamps
     end

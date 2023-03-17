@@ -13,6 +13,7 @@ class Doctor::ConsultationsController < ApplicationController
     consultation.assessment = params[:consultation][:assessment]
     consultation.diagnosis = params[:consultation][:diagnosis]
     consultation.plan = params[:consultation][:plan]
+    consultation.medical_prescriptions = params[:consultation][:medical_prescriptions]
     consultation.save
 
     flash[:notice] = "Successfully submitted reports"

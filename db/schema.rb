@@ -57,12 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_104234) do
     t.string "assessment"
     t.string "diagnosis"
     t.string "plan"
-    t.string "t"
-    t.string "rr"
-    t.string "cr"
-    t.string "spo2"
-    t.string "bp1"
-    t.string "bp2"
+    t.string "medical_prescriptions"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
