@@ -4,6 +4,15 @@ class Doctor::ConsultationsController < ApplicationController
     @user_appointment = Appointment.find(@doctor_appointment.appointment_id)
     @user = User.find(@doctor_appointment.user_id)
     @consultation = Consultation.new
+    @prescription = Prescription.new
+
+    @prescriptions =  Prescription.where(user_id: @user.id, doctor_appointment_id: @doctor_appointment.id)
+
+    # if turbo_frame_request?
+    #   render partial: "bands", locals: { bands: @bands }
+    # else
+    #   render :index
+    # end
   end
 
   def create
@@ -13,7 +22,6 @@ class Doctor::ConsultationsController < ApplicationController
     consultation.assessment = params[:consultation][:assessment]
     consultation.diagnosis = params[:consultation][:diagnosis]
     consultation.plan = params[:consultation][:plan]
-    consultation.medical_prescriptions = params[:consultation][:medical_prescriptions]
     consultation.save
 
     flash[:notice] = "Successfully submitted reports"
@@ -25,8 +33,16 @@ class Doctor::ConsultationsController < ApplicationController
 
     find_user = User.find(params[:consultation][:user_id])
     find_consultation = Consultation.find_by(user_id: params[:consultation][:user_id], doctor_appointment_id: params[:consultation][:doctor_appointment_id], assessment: params[:consultation][:assessment])
-    UserMailer.send_report(find_user, find_consultation).deliver
 
+
+    prescriptions = Prescription.where(user_id: consultation.user_id, doctor_appointment_id:  consultation.doctor_appointment_id)
+    
+    prescriptions.each do |pre|
+      pre.consultation_id = consultation.id
+      pre.save!
+    end
+
+    # UserMailer.send_report(find_user, find_consultation).deliver
     redirect_to doctor_dashboard_path
   end
 

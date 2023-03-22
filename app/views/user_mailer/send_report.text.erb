@@ -7,4 +7,13 @@ Below, you will find the doctor's results and corresponding prescriptions for yo
 ASSESSMENT: <%= @consultation.assessment %>
 DIAGNOSIS: <%= @consultation.diagnosis %>
 PLAN: <%= @consultation.plan %>
-MEDICAL PRECRIPTIONS: <%= @consultation.medical_prescriptions %>
+
+<% if @consultation.prescriptions.any? %>
+PRESCRIPTIONS
+    <% @consultation.prescriptions.each do |pre| %>
+-----------------------------------------------
+Medicine name: <%= pre.name%>
+Frequency: <%= pre.frequency%>
+Quantity: <%= pre.quantity%>
+    <% end%>
+<% end %>

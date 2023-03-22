@@ -7,9 +7,10 @@
             <div class="flex w-full flex-col rounded-2xl bg-white px-2 sm:px-14">
                 <div class="flex flex-wrap -mx-3 pt-20">
                     <div class="w-full px-3 mb-6 md:mb-0">
-                        <label class="block uppercase tracking-wide text-gray-700 text-lg font-bold mb-2">PATIENT INFORMATION</label>
+                        <label class="block uppercase tracking-wide text-gray-700 text-lg font-bold mb-2">PATIENT
+                            INFORMATION</label>
                     </div>
-                 </div>
+                </div>
 
                 <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
@@ -30,8 +31,7 @@
 
                 <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                        <label
-                            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Age</label>
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Age</label>
                         <%= text_field_tag :student_age, ((Date.today.strftime('%Y%m%d').to_i - @user.dob.strftime('%Y%m%d').to_i) / 10000), class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", disabled: true %>
                     </div>
                     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -39,12 +39,13 @@
                             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Department</label>
                         <%= text_field_tag :student_department, (@user.department) , class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", disabled: true %>
                     </div>
-                 </div>
+                </div>
 
 
-                 <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Food/drug allergies</label>
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Food/drug
+                            allergies</label>
                         <%= text_area_tag :student_allergies, (@user_appointment.allergies), class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", disabled: true %>
                     </div>
                     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -52,36 +53,85 @@
                             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Complaints</label>
                         <%= text_area_tag :student_complaints, (@user_appointment.reasons_for_consultation) , class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", disabled: true %>
                     </div>
-                 </div>
+                </div>
 
                 <div class="flex flex-wrap -mx-3">
                     <%= link_to "View more about patient", doctor_student_information_path(user: @user.id), class: "my-2 flex items-center justify-center rounded-md bg-gray-900 py-3 font-medium text-white w-full"%>
-                 </div>
+                </div>
 
-                 <div class="flex flex-wrap -mx-3 mb-6">
+                <div class="flex flex-wrap -mx-3 mb-6">
                     <%= link_to "Cancel Appointment", doctor_cancel_path(doctor_appointment: @doctor_appointment.id), class: "my-2 flex items-center justify-center rounded-md bg-red-900 py-3 font-medium text-white w-full"%>
-                 </div>
+                </div>
 
-        
+                <div class="flex flex-wrap">
+                    <%= form_for(@prescription, url: doctor_prescriptions_path, html: {class: "w-full"} ) do |form| %>
+                    <%= form.hidden_field :user_id, value: @user.id %>
+                    <%= form.hidden_field :doctor_appointment_id, value: @doctor_appointment.id %>
+                    <div class="flex flex-wrap -mx-3 pt-5">
+                        <div class="w-full px-3 mb-6 md:mb-0">
+                            <label class="block uppercase tracking-wide text-gray-700 text-lg font-bold mb-2">Medical Precriptions</label>
+                        </div>
+                    </div>
+                        <table class="table-auto">
+                            <thead>
+                                <tr>
+                                    <th>Medicine Name</th>
+                                    <th>Frequancy</th>
+                                    <th>Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <%= form.text_field :name, class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", required: true %>
+                                    </td>
+                                    <td>
+                                        <%= form.text_field :frequency, class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", required: true %>
+                                    </td>
+                                    <td>
+                                        <%= form.text_field :quantity, class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", required: true %>
+                                    </td>
+                                </tr>
+
+                                <% if @prescriptions.present? %>
+                                    <% @prescriptions.each do |prescription|%>
+                                        <tr>
+                                            <td><%= prescription.name %></td>
+                                            <td><%= prescription.frequency %></td>
+                                            <td><%= prescription.quantity %></td>
+                                        </tr>
+                                    <% end %>
+                                 <% end %>
+                            </tbody>
+                        </table>
+                        <%= form.submit "Add Prescriptions", class: "my-2 flex items-center justify-center rounded-md bg-blue-900 py-3 font-medium text-white w-full"%>    
+                    <% end %>
+                </div>
+
                 <%= form_for(@consultation, url: doctor_consultations_path, data: { turbo: false }, html: {class: "w-full pb-20"} ) do |f| %>
                     <%= f.hidden_field :user_id, value: @user.id %>
                     <%= f.hidden_field :doctor_appointment_id, value: @doctor_appointment.id %>
+
+
                     <div class="flex flex-wrap -mx-3 pt-5">
                         <div class="w-full px-3 mb-6 md:mb-0">
-                            <label class="block uppercase tracking-wide text-gray-700 text-lg font-bold mb-2">CLINIC INPUTS</label>
+                            <label class="block uppercase tracking-wide text-gray-700 text-lg font-bold mb-2">CLINIC
+                                INPUTS</label>
                         </div>
                     </div>
 
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full md:w-full px-3 mb-6 md:mb-0">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Assessment</label>
+                            <label
+                                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Assessment</label>
                             <%= f.text_area :assessment, class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", required: true %>
                         </div>
                     </div>
 
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full md:w-full px-3 mb-6 md:mb-0">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Diagnosis</label>
+                            <label
+                                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Diagnosis</label>
                             <%= f.text_area :diagnosis, class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", required: true %>
                         </div>
                     </div>
@@ -93,14 +143,11 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-wrap -mx-3 mb-6">
-                        <div class="w-full md:w-full px-3 mb-6 md:mb-0">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Medical Precriptions</label>
-                            <%= f.text_area :medical_prescriptions, class:"appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500", required: true %>
-                        </div>
-                    </div>
-                <%= f.submit "Send Reports", class: "my-2 flex items-center justify-center rounded-md bg-blue-900 py-3 font-medium text-white w-full"%>
+            
+                    <%= f.submit "Send Reports", class: "my-2 flex items-center justify-center rounded-md bg-blue-900 py-3 font-medium text-white w-full"%>
                 <% end %>
+
+              
             </div>
         </div>
     </div>

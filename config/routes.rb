@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     get "/logout", to: "sessions#destroy"
     resources :sessions, only: :create
     resources :consultations
+    resources :prescriptions, only: :create
 
     get '/student/information', to: "users#information"
     get '/student/emergency_contact', to: "users#emergency_contact"

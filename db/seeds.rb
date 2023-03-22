@@ -91,8 +91,8 @@ user1.save
 
 appointment = Appointment.new(
     user_id: 1,
-    start_time: "2023-03-20 08:00:00.000000",
-    pm_start_time: "2023-03-20 14:30:00.000000",
+    start_time: "2023-03-29 08:00:00.000000",
+    pm_start_time: "2023-03-29 14:30:00.000000",
     reasons_for_consultation: "Headache and mild cold",
     allergies: "fish, pork",
     status: "confirmed"
@@ -103,8 +103,8 @@ appointment.save
 
 appointment01 = Appointment.new(
     user_id: 2,
-    start_time: "2023-03-20 010:00:00.000000",
-    pm_start_time: "2023-03-20 16:30:00.000000",
+    start_time: "2023-03-29 010:00:00.000000",
+    pm_start_time: "2023-03-29 16:30:00.000000",
     reasons_for_consultation: "lorem test data",
     allergies: "lorem test data",
     status: "pending"
@@ -115,8 +115,8 @@ appointment01.save
 
 appointment1 = Appointment.new(
     user_id: 1,
-    start_time: "2023-03-21 08:00:00.000000",
-    pm_start_time: "2023-03-21 14:30:00.000000",
+    start_time: "2023-03-30 08:00:00.000000",
+    pm_start_time: "2023-03-30 14:30:00.000000",
     reasons_for_consultation: "Headache and mild cold",
     allergies: "fish, pork",
     status: "pending"
@@ -127,8 +127,8 @@ appointment1.save
 
 appointment2 = Appointment.new(
     user_id: 1,
-    start_time: "2023-03-22 08:00:00.000000",
-    pm_start_time: "2023-03-22 14:30:00.000000",
+    start_time: "2023-03-31 08:00:00.000000",
+    pm_start_time: "2023-03-31 14:30:00.000000",
     reasons_for_consultation: "Headache and mild cold",
     allergies: "fish, pork",
     status: "pending"
@@ -140,7 +140,7 @@ appointment2.save
 doctor_appointment = DoctorAppointment.new(
     appointment_id: 1,
     user_id: 1,
-    start_time: "2023-03-20 08:00:00.000000"
+    start_time: "2023-03-29 08:00:00.000000"
 )
 
 doctor_appointment.save
