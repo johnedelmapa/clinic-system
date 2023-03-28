@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user!, except: :about
+  before_action :authenticate_user!, except: [:about, :export]
   before_action :check_user_information, only: :dashboard
   before_action :check_emergency_contact, only: :dashboard
   def dashboard
@@ -9,6 +9,24 @@ class PagesController < ApplicationController
   end
 
   def about
+  end
+
+  def appointments
+    @consultations = Consultation.where(user_id: current_user.id)
+  end
+
+  def export
+    @consultation = Consultation.find(params[:consultation])
+    @doctor_appointment = DoctorAppointment.find(@consultation.doctor_appointment_id)
+    @user_appointment = Appointment.find(@doctor_appointment.appointment_id)
+    
+    @user = current_user || User.find(@consultation.user_id)
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "report", template: "pages/export", formats: :html, disposition: :inline, layout: 'pdf'
+      end
+    end
   end
 
   private

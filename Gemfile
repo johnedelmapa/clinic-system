@@ -87,3 +87,6 @@ gem "simple_calendar", "~> 2.4"
 
 #image upload
 gem "image_processing", ">= 1.2"
+
+gem 'wicked_pdf', github: 'mileszs/wicked_pdf'
+gem 'wkhtmltopdf-binary-edge-alpine', '~> 0.12.5.0'

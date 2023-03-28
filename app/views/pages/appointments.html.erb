@@ -1,0 +1,38 @@
+<div class="container mx-auto p-4">
+    <div class="w-full flex justify-between items-center">
+        <h1 class="text-xl leading-8 font-semibold text-gray-900">
+            Previous appointments
+        </h1>
+    </div>
+
+    <div class="table w-full  p-4">
+        <table class="w-full border">
+            <thead>
+                <tr class="bg-gray-50 border-b">
+                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                        <div class="flex items-center justify-center">
+                           Assessment
+                        </div>
+                    </th>
+
+                    <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                        <div class="flex items-center justify-center">
+                            Action
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @consultations.each do |consultation| %>
+                    <tr class="bg-gray-100 text-center border-b text-sm">
+                        <td class="p-2 border-r"><%= consultation.assessment %></td>
+                        <td class="p-2 border-r">
+                            <%= link_to "Export to PDF", export_path(consultation: consultation, format: :pdf), class: "bg-green-500 p-2 text-white hover:shadow-lg text-xs font-thin", target: '_blank'%>
+                        </td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   controllers: { registrations: 'users/registrations' }
   root to: 'pages#dashboard'
   get '/about', to: 'pages#about' 
+  get '/appointments', to: 'pages#appointments'
+  get '/export', to: 'pages#export' 
   resources :users, only: [:create, :destroy]
 
   get '/users/information', to: 'users#information'
@@ -37,6 +39,7 @@ Rails.application.routes.draw do
 
   namespace :doctor do
     get '/dashboard', to: "pages#dashboard"
+    get '/medical_record', to: "pages#medical_record"
     get '/login', to: "sessions#new"
     get "/logout", to: "sessions#destroy"
     resources :sessions, only: :create

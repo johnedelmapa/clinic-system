@@ -8,6 +8,8 @@ class Doctor::ConsultationsController < ApplicationController
 
     @prescriptions =  Prescription.where(user_id: @user.id, doctor_appointment_id: @doctor_appointment.id)
 
+
+    @history = Consultation.where(user_id: @user.id)
     # if turbo_frame_request?
     #   render partial: "bands", locals: { bands: @bands }
     # else
