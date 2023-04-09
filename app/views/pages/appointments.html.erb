@@ -15,6 +15,12 @@
                         </div>
                     </th>
 
+                     <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
+                        <div class="flex items-center justify-center">
+                           Date
+                        </div>
+                    </th>
+
                     <th class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500">
                         <div class="flex items-center justify-center">
                             Action
@@ -26,6 +32,7 @@
                 <% @consultations.each do |consultation| %>
                     <tr class="bg-gray-100 text-center border-b text-sm">
                         <td class="p-2 border-r"><%= consultation.assessment %></td>
+                        <td class="p-2 border-r"><%= consultation.doctor_appointment.start_time.strftime("%m/%d/%Y") %></td>
                         <td class="p-2 border-r">
                             <%= link_to "Export to PDF", export_path(consultation: consultation, format: :pdf), class: "bg-green-500 p-2 text-white hover:shadow-lg text-xs font-thin", target: '_blank'%>
                         </td>
