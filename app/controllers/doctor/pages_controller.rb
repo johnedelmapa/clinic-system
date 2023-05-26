@@ -14,6 +14,10 @@ class Doctor::PagesController < ApplicationController
     end
   end
 
+  def appointment_reocord
+    @consultations = Consultation.all
+  end
+
   private
     def logged_in_doctor
       unless doctor_logged_in?

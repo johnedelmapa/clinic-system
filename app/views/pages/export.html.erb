@@ -122,18 +122,20 @@
             <p class="rx-logo">RX</p>
           </td>
         </tr>
-        <tr>
-          <td class="date">Assessment:</td>
-          <td colspan="3"><%= @consultation.assessment %></td>
-        </tr>
-        <tr>
-          <td class="date">Diagnosis:</td>
-          <td colspan="3"><%= @consultation.diagnosis %></td>
-        </tr>
-         <tr>
-          <td class="date">Plan:</td>
-          <td colspan="3"><%= @consultation.plan %></td>
-        </tr>
+        <% if current_doctor.present? || current_nurse.present? %>
+          <tr>
+            <td class="date">Assessment:</td>
+            <td colspan="3"><%= @consultation.assessment %></td>
+          </tr>
+          <tr>
+            <td class="date">Diagnosis:</td>
+            <td colspan="3"><%= @consultation.diagnosis %></td>
+          </tr>
+          <tr>
+            <td class="date">Plan:</td>
+            <td colspan="3"><%= @consultation.plan %></td>
+          </tr>
+        <% end %>
         <tr>
           <td colspan="4" class="prescription">
             <table>

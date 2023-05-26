@@ -42,7 +42,7 @@
         <tbody>
             <% @users.each do |user| %>
             <tr class="bg-gray-100 text-center border-b text-sm">
-                <td class="p-2 border-r"><%= user.firstname + " " + user.lastname %> </td>
+                <td class="p-2 border-r"><%= "#{user.firstname} #{user.lastname}" %></td>
                 <td class="p-2 border-r"><%= user.email %></td>
                 <td class="p-2 border-r"><%= user.student_id %></td>
                 <td><%= link_to "View details", doctor_student_information_path(user: user.id), class: "bg-blue-500 p-2 text-white hover:shadow-lg text-xs font-thin"%>

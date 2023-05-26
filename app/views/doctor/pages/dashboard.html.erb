@@ -9,7 +9,7 @@
         <% appointments.each do |appointment| %>
             <div class="bottom flex-grow h-30 py-1 w-full cursor-pointer">
               <% if appointment.consultation.present? %>
-                    <%= link_to "#" do%>
+                    <%= link_to export_path(consultation: appointment.consultation, format: :pdf), target: '_blank' do%>
                         <% user = User.find(appointment.user_id)%>
                         <div class="event bg-green-600 text-white rounded p-1 text-sm mb-1">Completed <br> <%= user.firstname %> <%= user.lastname%></div>
                     <% end %>

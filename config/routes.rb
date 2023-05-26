@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   namespace :doctor do
     get '/dashboard', to: "pages#dashboard"
     get '/medical_record', to: "pages#medical_record"
+    get '/appointment_reocord', to: "pages#appointment_reocord"
     get '/login', to: "sessions#new"
     get "/logout", to: "sessions#destroy"
     resources :sessions, only: :create
