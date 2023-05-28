@@ -1,102 +1,126 @@
 	<!--Header-->
-	<div class="w-full m-0 p-0 bg-cover bg-bottom"
-	    style="background-image:url('cover.jpg'); height: 60vh; max-height:460px;">
-	    <div class="container max-w-4xl mx-auto pt-16 md:pt-32 text-center break-normal">
-	        <!--Title-->
-	        <p class="text-red-600 font-extrabold text-3xl md:text-5xl">
-	            About Us
-	        </p>
-	        <p class="text-xl md:text-2xl text-gray-500">sample headline text</p>
-	    </div>
+	<div class="w-full m-0 p-0 bg-cover bg-bottom">
+		<div class="container max-w-4xl mx-auto pt-16 md:pt-32 text-center break-normal">
+			<!--Title-->
+			<p class="text-red-600 font-extrabold text-3xl md:text-5xl">
+				About Us
+			</p>
+			<!-- <p class="text-xl md:text-2xl text-gray-500">sample headline text</p> -->
+		</div>
 	</div>
 
 	<!--Container-->
-	<div class="container px-4 md:px-0 max-w-6xl mx-auto -mt-32">
-	    <div class="mx-0 sm:mx-6">
-	        <div class="bg-gray-200 w-full text-xl md:text-2xl text-gray-800 leading-normal rounded-t">
-	            <!--Lead Card-->
-	            <div class="flex h-full bg-white rounded overflow-hidden shadow-lg">
-	                <a href="post.html" class="flex flex-wrap no-underline hover:no-underline">
-	                    <div class="w-full md:w-2/3 rounded-t">
-	                        <img src="https://source.unsplash.com/collection/494263/800x600" class="h-full w-full shadow">
-	                    </div>
+	<div class="container px-4 md:px-0 max-w-6xl mx-auto">
+		<div class="mx-0 sm:mx-6">
+			<div class="bg-gray-200 w-full text-xl md:text-2xl text-gray-800 leading-normal rounded-t">
+				<div class="flex flex-wrap justify-between pt-12 -mx-6">
+					<!--1/2 col -->
+					<div class="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink">
+						<div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
+							<a href="#" class="flex flex-wrap no-underline hover:no-underline">
+								<%= image_tag 'Mission.png', class: "h-full w-full rounded-t" %>
+							</a>
+							
+						</div>
+					
+					</div>
 
-	                    <div class="w-full md:w-1/3 flex flex-col flex-grow flex-shrink">
-	                        <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-	                            <p class="w-full text-gray-600 text-xs md:text-sm pt-6 px-6">GETTING STARTED</p>
-	                            <div class="w-full font-bold text-xl text-gray-900 px-6">👋 Welcome fellow Tailwind CSS and
-	                                Ghost fan</div>
-	                            <p class="text-gray-800 font-serif text-base px-6 mb-5">
-	                                This starter template is an attempt to replicate the default Ghost theme "Casper" using
-	                                Tailwind CSS and vanilla Javascript.
-	                            </p>
-	                        </div>
+					<!--1/2 col -->
+					<div class="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink">
+						<div class="flex-1 flex-row bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
+							<a href="#" class="flex flex-wrap no-underline hover:no-underline">
+								<%= image_tag 'Vision.png', class: "h-full w-full rounded-t" %>
+							</a>
+						</div>
+						
+					</div>
+				</div>
+			</div>
 
-	                        <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
-	                            <div class="flex items-center justify-between">
-	                                <img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="Author Name"
-	                                    src="http://i.pravatar.cc/300" alt="Avatar of Author">
-	                                <p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
-	                            </div>
-	                        </div>
-	                    </div>
-
-	                </a>
-	            </div>
-	            <!--/Lead Card-->
-
-
-	            <!--Posts Container-->
-	            <div class="flex flex-wrap justify-between pt-12 -mx-6">
-	                <!--1/2 col -->
-	                <div class="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink">
-	                    <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-	                        <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-	                            <img src="https://source.unsplash.com/collection/3657445/800x600"
-	                                class="h-full w-full rounded-t pb-6">
-	                            <p class="w-full text-gray-600 text-xs md:text-sm px-6">GETTING STARTED</p>
-	                            <div class="w-full font-bold text-xl text-gray-900 px-6">Lorem ipsum dolor sit amet.</div>
-	                            <p class="text-gray-800 font-serif text-base px-6 mb-5">
-	                                Lorem ipsum eu nunc commodo posuere et sit amet ligula.
-	                            </p>
-	                        </a>
-	                    </div>
-	                    <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
-	                        <div class="flex items-center justify-between">
-	                            <img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="Author Name"
-	                                src="http://i.pravatar.cc/300" alt="Avatar of Author">
-	                            <p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
-	                        </div>
-	                    </div>
-	                </div>
-
-	                <!--1/2 col -->
-	                <div class="w-full md:w-1/2 p-6 flex flex-col flex-grow flex-shrink">
-	                    <div class="flex-1 flex-row bg-white rounded-t rounded-b-none overflow-hidden shadow-lg">
-	                        <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-	                            <img src="https://source.unsplash.com/collection/764827/800x600"
-	                                class="h-full w-full rounded-t pb-6">
-	                            <p class="w-full text-gray-600 text-xs md:text-sm px-6">GETTING STARTED</p>
-	                            <div class="w-full font-bold text-xl text-gray-900 px-6">Lorem ipsum dolor sit amet.</div>
-	                            <p class="text-gray-800 font-serif text-base px-6 mb-5">
-	                                Lorem ipsum eu nunc commodo posuere et sit amet ligula.
-	                            </p>
-	                        </a>
-	                    </div>
-	                    <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
-	                        <div class="flex items-center justify-between">
-	                            <img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="Author Name"
-	                                src="http://i.pravatar.cc/300" alt="Avatar of Author">
-	                            <p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
-	                        </div>
-	                    </div>
-	                </div>
-	            </div>
-	            <!--/ Post Content-->
-
-	        </div>
-
-	    </div>
+		</div>
 
 
 	</div>
+
+
+	<section class="flex justify-center items-center">
+		<div>
+			<div class="px-10 py-20 relative">
+				<ul id="slider">
+					<li class="h-[50vh] relative">
+						<%= image_tag 'About.png', class: "h-full w-full object-cover" %>
+					</li>
+					<li class="h-[50vh] relative hidden">
+						<%= image_tag 'Antonio.jpg', class: "h-full w-full object-cover" %>
+					</li>
+					<li class="h-[50vh] relative hidden">
+						<%= image_tag 'Beguas.jpg', class: "h-full w-full object-cover" %>
+					</li>
+					<li class="h-[50vh] relative hidden">
+						<%= image_tag 'Castillo.jpg', class: "h-full w-full object-cover" %>
+					</li>
+					<li class="h-[50vh] relative hidden">
+						<%= image_tag 'Gabana.jpg', class: "h-full w-full object-cover" %>
+					</li>
+					<li class="h-[50vh] relative hidden">
+						<%= image_tag 'Shibanushi.jpg', class: "h-full w-full object-cover" %>
+					</li>
+					<li class="h-[50vh] relative hidden">
+						<%= image_tag 'Titong.jpg', class: "h-full w-full object-cover" %>
+					</li>
+				</ul>
+				<div class="absolute px-5 flex h-full w-full top-0 left-0">
+					<div class="my-auto w-full flex justify-between">
+						<button onclick="prev()" class="bg-white p-3 rounded-full bg-opacity-80">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+								stroke="currentColor" class="w-6 h-6">
+								<path stroke-linecap="round" stroke-linejoin="round"
+									d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75" />
+							</svg>
+						</button>
+						<button onclick="next()" class="bg-white p-3 rounded-full bg-opacity-80">
+							<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+								stroke="currentColor" class="w-6 h-6">
+								<path stroke-linecap="round" stroke-linejoin="round"
+									d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+							</svg>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<script>
+		currentSlideID = 1;
+
+		sliderElement = document.getElementById('slider');
+		totalSlides = sliderElement.childElementCount;
+
+		function next() {
+			if (currentSlideID < totalSlides) {
+				currentSlideID++;
+				showSlide();
+			}
+		}
+
+		function prev() {
+			if (currentSlideID > 1) {
+				currentSlideID--;
+				showSlide();
+			}
+		}
+
+		function showSlide() {
+			slides = document.getElementById('slider').getElementsByTagName('li');
+			for (let index = 0; index < totalSlides; index++) {
+				const element = slides[index];
+				if (currentSlideID === index + 1) {
+					element.classList.remove('hidden')
+				} else {
+					element.classList.add('hidden')
+				}
+			}
+		}
+	</script>
